@@ -1,10 +1,7 @@
-using Microsoft.AspNetCore.Mvc;
 using Moq;
 using SportsStore.Controllers;
 using SportsStore.Models;
 using SportsStore.Models.ViewModels;
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using Xunit;
 
@@ -24,7 +21,7 @@ namespace SportsStore.Tests
             HomeController controller = new HomeController(mock.Object);
 
             // Act
-            ProductsListViewModel result = controller.Index().ViewData.Model as ProductsListViewModel;
+            ProductsListViewModel result = controller.Index(null).ViewData.Model as ProductsListViewModel;
 
             // Assert
             Product[] prodArray = result.Products.ToArray();
@@ -49,7 +46,7 @@ namespace SportsStore.Tests
             controller.PageSize = 3;
 
             // Act
-            ProductsListViewModel result = controller.Index(2).ViewData.Model as ProductsListViewModel;
+            ProductsListViewModel result = controller.Index(null, 2).ViewData.Model as ProductsListViewModel;
             
             // Assert
             Product[] prodArray = result.Products.ToArray();
@@ -74,7 +71,7 @@ namespace SportsStore.Tests
             HomeController controller = new HomeController(mock.Object) { PageSize = 3 };
 
             // Act
-            ProductsListViewModel result = controller.Index(2).ViewData.Model as ProductsListViewModel;
+            ProductsListViewModel result = controller.Index(null, 2).ViewData.Model as ProductsListViewModel;
             
             // Assert
             PagingInfo pageInfo = result.PagingInfo;

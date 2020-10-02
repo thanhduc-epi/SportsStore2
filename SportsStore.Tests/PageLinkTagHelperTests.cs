@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using Moq;
 using SportsStore.Infrastructure;
-using SportsStore.Models;
 using SportsStore.Models.ViewModels;
 using System.Collections.Generic;
 using System.Threading.Tasks;
