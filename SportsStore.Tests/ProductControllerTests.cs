@@ -24,11 +24,11 @@ namespace SportsStore.Tests
             // Arrange - create a controller and make the page size 3 items
             HomeController controller = new HomeController(mock.Object);
             controller.PageSize = 3;
-            
+
             // Action
             Product[] result =
             (controller.Index("Cat2", 1).ViewData.Model as ProductsListViewModel).Products.ToArray();
-            
+
             // Assert
             Assert.Equal(2, result.Length);
             Assert.True(result[0].Name == "P2" && result[0].Category == "Cat2");
